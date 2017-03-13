@@ -1,4 +1,4 @@
-# ${1:Project Name}
+# CWSpy
 A simple API wrapper for [ConWorkShop](http://conworkshop.info/), written in Python.
 ## Dependencies
 - [requests](http://docs.python-requests.org/en/master/)
