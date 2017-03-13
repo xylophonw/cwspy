@@ -56,7 +56,8 @@ class API():
 
     def get_lang_type(self, val):
 
-        response = requests.get(BASE_URI + 'LANG/TYPE/' + val).json()
+        response = urllib.request.urlopen(BASE_URI + 'LANG/TYPE/' + val).read()
+        response = json.loads(response)
 
         helpers.check_for_errors(response)
 
@@ -70,7 +71,8 @@ class API():
 
     def get_lang_status(self, val):
 
-        response = requests.get(BASE_URI + 'LANG/STATUS/' + val).json()
+        response = urllib.request.urlopen(BASE_URI + 'LANG/STATUS/' + val).read()
+        response = json.loads(response)
 
         helpers.check_for_errors(response)
 
