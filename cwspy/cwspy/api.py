@@ -1,7 +1,6 @@
 import urllib
 import json
 
-import errors
 import helpers
 import data
 
@@ -12,14 +11,14 @@ class API():
     def get_user(self, val):
         val = helpers.resolve(val)
 
-        response = urllib.request.urlopen(BASE_URI + 'USER/' + val).read()
+        response = urllib.request.urlopen(''.join(BASE_URI, 'USER/', val)).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
 
         response = response['out']
         attribs = {
-            'user_id': response['USER_ID'],
+            'uid': response['USER_ID'],
             'name': response['USER_NAME'],
             'gender': response['USER_GENDER'],
             'bio': response['USER_BIO'],
@@ -27,11 +26,11 @@ class API():
             'karma': response['KARMA'],
         }
 
-        return data.User(**attribs)
+        return data.defaultUser._replace(**attribs)
 
     def get_lang(self, val):
 
-        response = urllib.request.urlopen(BASE_URI + 'LANG/' + val).read()
+        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/', val)).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -41,7 +40,7 @@ class API():
             'code': response['CODE'],
             'name': response['NAME'],
             'native_name': response['NATIVE_NAME'],
-            "ipa": response["IPA"],
+            'ipa': response['IPA'],
             'lang_type': self.get_lang_type(response['TYPE']),
             'owners': response['OWNERS'],
             'overview': response['OVERVIEW'],
@@ -52,11 +51,11 @@ class API():
             'karma': response['KARMA']
         }
 
-        return data.Language(**attribs)
+        return data.defaultLanguage._replace(**attribs)
 
     def get_lang_type(self, val):
 
-        response = urllib.request.urlopen(BASE_URI + 'LANG/TYPE/' + val).read()
+        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/TYPE/', val)).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -67,11 +66,11 @@ class API():
             'desc': response['DESC']
         }
 
-        return data.Language.Type(**attribs)
+        return data.defaultType._replace(**attribs)
 
     def get_lang_status(self, val):
 
-        response = urllib.request.urlopen(BASE_URI + 'LANG/STATUS/' + val).read()
+        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/STATUS/', val)).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -82,4 +81,4 @@ class API():
             'desc': response['DESC']
         }
 
-        return data.Language.Status(**attribs)
+        return data.defaultStatus._replace(**attribs)
