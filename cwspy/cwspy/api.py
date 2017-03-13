@@ -1,4 +1,5 @@
-import requests
+import urllib
+import json
 
 import errors
 import helpers
@@ -11,7 +12,8 @@ class API():
     def get_user(self, val):
         val = helpers.resolve(val)
 
-        response = requests.get(BASE_URI + 'USER/' + val).json()
+        response = urllib.request.urlopen(BASE_URI + 'USER/' + val).read()
+        response = json.loads(response)
 
         helpers.check_for_errors(response)
 
@@ -29,7 +31,8 @@ class API():
 
     def get_lang(self, val):
 
-        response = requests.get(BASE_URI + 'LANG/' + val).json()
+        response = urllib.request.urlopen(BASE_URI + 'LANG/' + val).read()
+        response = json.loads(response)
 
         helpers.check_for_errors(response)
 

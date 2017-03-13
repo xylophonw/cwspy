@@ -1,15 +1,12 @@
 # CWSpy
 A simple API wrapper for [ConWorkShop](http://conworkshop.info/), written in Python.
-## Dependencies
-- [requests](http://docs.python-requests.org/en/master/)
-  - install with `$ pip install requests`
 
 ## Installation
 i should work out how to register this on the package index
 
 when this is working it should just be
 ```bash
-pip install cwspy
+$ pip install cwspy
 ```
 
 ## Usage
