@@ -8,7 +8,8 @@ A simple API wrapper for [ConWorkShop](http://conworkshop.info/), written in Pyt
 i should work out how to register this on the package index
 
 when this is working it should just be
-```pip install cwspy
+```bash
+pip install cwspy
 ```
 
 ## Usage
