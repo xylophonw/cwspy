@@ -1,8 +1,8 @@
-import urllib
+import urllib.request
 import json
 
-import helpers
-import data
+from . import data
+from . import helpers
 
 BASE_URI = 'http://conworkshop.com/api/'
 
@@ -11,7 +11,7 @@ class API():
     def get_user(self, val):
         val = helpers.resolve(val)
 
-        response = urllib.request.urlopen(''.join(BASE_URI, 'USER/', val)).read()
+        response = urllib.request.urlopen(''.join([BASE_URI, 'USER/', val])).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -30,7 +30,7 @@ class API():
 
     def get_lang(self, val):
 
-        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/', val)).read()
+        response = urllib.request.urlopen(''.join([BASE_URI, 'LANG/', val])).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -55,7 +55,7 @@ class API():
 
     def get_lang_type(self, val):
 
-        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/TYPE/', val)).read()
+        response = urllib.request.urlopen(''.join([BASE_URI, 'LANG/TYPE/', val])).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)
@@ -70,7 +70,7 @@ class API():
 
     def get_lang_status(self, val):
 
-        response = urllib.request.urlopen(''.join(BASE_URI, 'LANG/STATUS/', val)).read()
+        response = urllib.request.urlopen(''.join([BASE_URI, 'LANG/STATUS/', val])).read()
         response = json.loads(response)
 
         helpers.check_for_errors(response)

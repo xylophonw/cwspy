@@ -1,6 +1,6 @@
 import re
 
-import errors
+from . import errors
 
 def resolve(val):
     id_regex = re.compile('\A(S?\d+)\Z')
