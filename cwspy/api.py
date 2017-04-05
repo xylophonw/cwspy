@@ -21,7 +21,7 @@ class API():
             'uid': response['USER_ID'],
             'name': response['USER_NAME'],
             'gender': response['USER_GENDER'],
-            'bio': response['USER_ABOUT'],
+            'bio': response['USER_BIO'],
             'country': response['USER_COUNTRY'],
             'karma': response['KARMA'],
         }
