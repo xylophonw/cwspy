@@ -10,7 +10,7 @@ $ pip install cwspy
 ```python
 import cwspy
 
-foo = cwspy.api.API()
+foo = cwspy.API()
 
 foo.get_user("name") # get user information
 foo.get_lang("name") # get language information
